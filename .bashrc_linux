@@ -22,21 +22,22 @@ alias more="less "
 
 # Git aliases
 alias gbranch="git branch "
-alias gcheckout="git checkout "
+alias gdel="git branch -d "
+alias gswitch="git checkout "
+alias gcheckout="git checkout"
+alias gpull="git pull"
+alias gpullo="git pull origin master"
 alias gadd="git add "
 alias grm="git rm "
 alias gdiff="git diff "
 alias gmv="git mv "
 alias gstatus="git status "
-alias gcommit="git commit -a "
-alias gpush="git push "
-alias gpull="git pull "
+alias gcommit="git commit -m "
+alias gcommitamend="git commit --amend "
+alias grevrev="git review --reviewers "
+alias grev="git review"
+alias gsyncm="gswitch master; gpullo"
 alias gce="gcommit; gpush "
-
-# Macbook aliases
-alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
-alias showhidden="defaults write com.apple.finder AppleShowAllFiles YES; killAll Finder /System/Library/CoreServices/Finder.app"
-alias hidehidden="defaults write com.apple.finder AppleShowAllFiles NO; killAll Finder /System/Library/CoreServices/Finder.app"
 
 # Tmux aliases
 alias tma="tmux attach-session -t "
