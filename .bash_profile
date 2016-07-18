@@ -15,5 +15,5 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\W' adds the name of the current directory
 #export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset "
 # 'pwd' adds the name of the current directory, full path
-export PS1="$purple\u$green\$(__git_ps1)$blue [\$(pwd)/] $ $reset \n$green[\t]$reset "
+export PS1="$purple\u@\h$green\$(__git_ps1)$blue [\$(pwd)/] $ $reset \n$green[\t]$reset "
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi

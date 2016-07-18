@@ -33,7 +33,7 @@ alias grm="git rm "
 alias gdiff="git diff "
 alias gmv="git mv "
 alias gstatus="git status "
-alias gcommit="git commit -m "
+alias gcommit="git commit "
 alias gcommitamend="git commit --amend "
 alias grevrev="git review --reviewers "
 alias grev="git review"
@@ -51,7 +51,7 @@ alias tmk="tmux kill-session -t "
 # Functions
 #######################
 sshs() {
-    scp bashrc_ssh $1:/home/admin/.bashrc
+    scp .bashrc $1:/home/admin/.bashrc; scp .bash_profile $1:/home/admin/.bash_profile; scp ~/scripts/git-completion.bash $1:/home/admin/scripts/git-completion.bash; scp ~/scripts/git-prompt.sh $1:/home/admin/scripts/git-prompt.sh
     ssh $1
 }
 
