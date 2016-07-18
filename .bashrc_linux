@@ -37,6 +37,7 @@ alias gcommitamend="git commit --amend "
 alias grevrev="git review --reviewers "
 alias grev="git review"
 alias gsyncm="gswitch master; gpullo"
+alias gsync="git rebase master"
 alias gce="gcommit; gpush "
 
 # Tmux aliases
