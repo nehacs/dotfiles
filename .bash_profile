@@ -1,5 +1,7 @@
 # Enable tab completion
 source ~/git-completion.bash
+__git_complete gswitch _git_checkout
+__git_complete gbranch _git_branch
 
 # colors!
 green="\[\033[0;32m\]"

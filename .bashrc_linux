@@ -22,7 +22,6 @@ alias more="less "
 
 # Git aliases
 alias gbranch="git branch "
-alias gdel="git branch -d "
 alias gswitch="git checkout "
 alias gcheckout="git checkout"
 alias gpush="git push"
