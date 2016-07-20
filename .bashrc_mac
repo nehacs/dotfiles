@@ -1,0 +1,66 @@
+# Command prompt is now being set in bash_profile
+#export PS1="\[\033[0;36m\]\u@\h $ [\$(pwd)/]\[\033[0m\] \n\[\033[0;32m\][\t]\[\033[0m\] "
+# To color for exit status of previous command, i.e. color for mistakes in red 
+#PS1="\[\`if [[ \$? = "0" ]]; then echo '\e[32m\h\e[0m'; else echo '\e[31m\h\e[0m' ; fi\`:\w\n\$ "
+
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Path
+export PATH=$PATH:$HOME/bin
+
+# Bash history
+export HISTCONTROL=ignoreboth
+export HISTIGNORE="ls"
+
+# Editor
+export EDITOR="emacs"
+
+# Aliases
+alias ls="ls -alhG"
+alias psgrep="ps -ef | grep "
+alias more="less "
+
+# Git aliases
+alias gbranch="git branch "
+alias gdel="git branch -d "
+alias gswitch="git checkout "
+alias gcheckout="git checkout"
+alias gpush="git push"
+alias gpull="git pull"
+alias gpullo="git pull origin master"
+alias gadd="git add "
+alias grm="git rm "
+alias gdiff="git diff "
+alias gmv="git mv "
+alias gstatus="git status "
+alias gcommit="git commit "
+alias gcommitamend="git commit --amend "
+alias grevrev="git review --reviewers "
+alias grev="git review"
+alias gsyncm="gswitch master; gpullo"
+alias gsync="git rebase master"
+alias gce="gcommit; gpush "
+
+# Macbook aliases
+alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles YES; killAll Finder /System/Library/CoreServices/Finder.app"
+alias hidehidden="defaults write com.apple.finder AppleShowAllFiles NO; killAll Finder /System/Library/CoreServices/Finder.app"
+
+# Tmux aliases
+alias tma="tmux attach-session -t "
+alias tmn="tmux new-session -s "
+alias tml="tmux list-sessions "
+alias tmk="tmux kill-session -t "
+
+#######################
+# Functions
+#######################
+sshs() {
+    scp .bashrc $1:/home/admin/.bashrc; scp .bash_profile $1:/home/admin/.bash_profile; scp ~/scripts/git-completion.bash $1:/home/admin/scripts/git-completion.bash; scp ~/scripts/git-prompt.sh $1:/home/admin/scripts/git-prompt.sh
+    ssh $1
+}
+
+sshsi() {
+    scp -i $1 bashrc_ssh $2:/home/admin/.bashrc
+    ssh -i $1 $2
+}
