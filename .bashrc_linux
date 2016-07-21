@@ -46,6 +46,14 @@ alias tmn="tmux new-session -s "
 alias tml="tmux list-sessions "
 alias tmk="tmux kill-session -t "
 
+# Linux aliases
+alias monitors="xrandr --query"
+alias mirror="xrandr --output eDP1 --same-as DP2-1"
+alias nomirror="xrandr --output eDP1 --left-of DP2-1"
+alias remotere="/opt/google/chrome-remote-desktop/chrome-remote-desktop --stop; /opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
+alias remote="/opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
+alias resize="xrandr --output eDP1 --mode 1920x1080"
+
 #######################
 # Functions
 #######################

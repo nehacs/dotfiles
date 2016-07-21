@@ -40,16 +40,16 @@ alias gsyncm="gswitch master; gpullo"
 alias gsync="git rebase master"
 alias gce="gcommit; gpush "
 
-# Macbook aliases
-alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
-alias showhidden="defaults write com.apple.finder AppleShowAllFiles YES; killAll Finder /System/Library/CoreServices/Finder.app"
-alias hidehidden="defaults write com.apple.finder AppleShowAllFiles NO; killAll Finder /System/Library/CoreServices/Finder.app"
-
 # Tmux aliases
 alias tma="tmux attach-session -t "
 alias tmn="tmux new-session -s "
 alias tml="tmux list-sessions "
 alias tmk="tmux kill-session -t "
+
+# Macbook aliases
+alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles YES; killAll Finder /System/Library/CoreServices/Finder.app"
+alias hidehidden="defaults write com.apple.finder AppleShowAllFiles NO; killAll Finder /System/Library/CoreServices/Finder.app"
 
 #######################
 # Functions
