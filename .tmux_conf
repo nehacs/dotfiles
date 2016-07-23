@@ -1,0 +1,5 @@
+unbind C-b
+set -g prefix C-q
+set-option -g default-command "reattach-to-user-namespace -l bash" # or bash...
+bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"

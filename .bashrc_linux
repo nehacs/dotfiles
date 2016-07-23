@@ -19,6 +19,7 @@ export EDITOR="emacs"
 alias ls="ls -alhG --color"
 alias psgrep="ps -ef | grep "
 alias more="less "
+alias mygrep="grep -r --exclude-dir={.idea,.git} "
 
 # Git aliases
 alias gbranch="git branch "
@@ -34,25 +35,33 @@ alias gmv="git mv "
 alias gstatus="git status "
 alias gcommit="git commit "
 alias gcommitamend="git commit --amend "
-alias grevrev="git review --reviewers "
-alias grev="git review"
+alias gcommitne="git commit --amend --no-edit"
 alias gsyncm="gswitch master; gpullo"
 alias gsync="git rebase master"
 alias gce="gcommit; gpush "
+alias gshow="git show "
+alias gfiles="git show --pretty=\"\" --name-only"
+alias gstash="git stash "
+
+# Gerrit aliases
+alias grevrev="git review --reviewers "
+alias grev="git review"
+alias gdown="git review -d "
 
 # Tmux aliases
-alias tma="tmux attach-session -t "
-alias tmn="tmux new-session -s "
-alias tml="tmux list-sessions "
-alias tmk="tmux kill-session -t "
+alias tma="tmux -f ~/.tmux_conf attach-session -t "
+alias tmn="tmux -f ~/.tmux_conf new-session -s "
+alias tml="tmux -f ~/.tmux_conf list-sessions "
+alias tmk="tmux -f ~/.tmux_conf kill-session -t "
 
 # Linux aliases
 alias monitors="xrandr --query"
 alias mirror="xrandr --output eDP1 --same-as DP2-1"
 alias nomirror="xrandr --output eDP1 --left-of DP2-1"
-alias remotere="/opt/google/chrome-remote-desktop/chrome-remote-desktop --stop; /opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
-alias remote="/opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
+alias remote="/opt/google/chrome-remote-desktop/chrome-remote-desktop --stop; /opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
 alias resize="xrandr --output eDP1 --mode 1920x1080"
+alias resizedell="xrandr --output DP2-1 --mode 2560x1440"
+alias resizesmall="xrandr --output DP2-1 --mode 2560x1440"
 
 #######################
 # Functions
