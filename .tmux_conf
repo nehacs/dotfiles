@@ -1,5 +1,16 @@
 unbind C-b
 set -g prefix C-q
-set-option -g default-command "reattach-to-user-namespace -l bash" # or bash...
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+bind C-q send-prefix
+
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf
+
+# move x clipboard into tmux paste buffer
+bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+# move tmux copy buffer into x clipboard
+bind C-y run "tmux show-buffer | xclip -i"

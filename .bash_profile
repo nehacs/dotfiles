@@ -2,7 +2,7 @@
 source ~/git-completion.bash
 __git_complete gswitch _git_checkout
 __git_complete gbranch _git_branch
-__git_complete gstash _git_stash
+__git_complete stash _git_stash
 
 # colors!
 green="\[\033[0;32m\]"

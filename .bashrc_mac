@@ -20,9 +20,11 @@ alias ls="ls -alhG"
 alias psgrep="ps -ef | grep "
 alias more="less "
 alias mygrep="grep -r --exclude-dir={.idea,.git} "
+alias rebash="clear ; exec bash -l"
 
 # Git aliases
 alias gbranch="git branch "
+alias del="-d -D "
 alias gswitch="git checkout "
 alias gcheckout="git checkout"
 alias gpush="git push"
@@ -37,11 +39,12 @@ alias gcommit="git commit "
 alias gcommitamend="git commit --amend "
 alias gcommitne="git commit --amend --no-edit"
 alias gsyncm="gswitch master; gpullo"
-alias gsync="git rebase master"
+alias gsync="gsyncm; gswitch $0; git rebase master"
+alias greb="git rebase "
 alias gce="gcommit; gpush "
 alias gshow="git show "
 alias gfiles="git show --pretty=\"\" --name-only"
-alias gstash="git stash "
+alias stash="git stash "
 
 # Gerrit aliases
 alias grevrev="git review --reviewers "
@@ -53,7 +56,6 @@ alias tma="tmux -f ~/.tmux_conf attach-session -t "
 alias tmn="tmux -f ~/.tmux_conf new-session -s "
 alias tml="tmux -f ~/.tmux_conf list-sessions "
 alias tmk="tmux -f ~/.tmux_conf kill-session -t "
-
 
 # Macbook aliases
 alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
