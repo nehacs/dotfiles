@@ -64,7 +64,7 @@ alias nomirror="xrandr --output eDP1 --left-of DP2-1"
 alias remote="/opt/google/chrome-remote-desktop/chrome-remote-desktop --stop; /opt/google/chrome-remote-desktop/chrome-remote-desktop --start"
 alias resize="xrandr --output eDP1 --mode 1920x1080"
 alias resizedell="xrandr --output DP2-1 --mode 2560x1440"
-alias resizesmall="xrandr --output eDP1 --mode 1368x768"
+alias resizesmall="xrandr --output eDP1 --mode 1366x768"
 alias repeat="xkbset repeatkeys"
 
 #######################
