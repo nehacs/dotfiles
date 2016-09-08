@@ -41,9 +41,11 @@ alias gcommitne="git commit --amend --no-edit"
 alias gsyncm="gswitch master; gpullo"
 alias gsync="gsyncm; gswitch $0; git rebase master"
 alias greb="git rebase "
+alias grebcont="git rebase --continue "
 alias gce="gcommit; gpush "
 alias gshow="git show "
 alias gfiles="git show --pretty=\"\" --name-only"
+alias greset="git fetch origin; git reset --hard origin/master"
 alias stash="git stash "
 
 # Gerrit aliases
