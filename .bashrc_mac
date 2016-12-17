@@ -54,10 +54,10 @@ alias grev="git review"
 alias gdown="git review -d "
 
 # Tmux aliases
-alias tma="tmux -f ~/.tmux_conf attach-session -t "
-alias tmn="tmux -f ~/.tmux_conf new-session -s "
-alias tml="tmux -f ~/.tmux_conf list-sessions "
-alias tmk="tmux -f ~/.tmux_conf kill-session -t "
+alias tma="tmux -f ~/.tmux.conf attach-session -t "
+alias tmn="tmux -f ~/.tmux.conf new-session -s "
+alias tml="tmux -f ~/.tmux.conf list-sessions "
+alias tmk="tmux -f ~/.tmux.conf kill-session -t "
 
 # Macbook aliases
 alias addspacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock"
