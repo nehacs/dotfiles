@@ -174,3 +174,5 @@ let g:go_highlight_build_constraints = 1
 " nnoremap <silent><A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+set number
