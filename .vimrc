@@ -13,6 +13,12 @@ runtime! debian.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/assets/*,*/.git/*
+
+syntax enable
+colorscheme solarized
+set background=dark
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -128,7 +134,8 @@ set nohlsearch          " turn off highlight searches
 map <silent> <C-N> :se invhlsearch<CR> " turn on highlights with Ctrl+N
 
 let g:ctrlp_working_path_mode = ''
-let g:ctrlp_max_height = 20
+let g:ctrlp_max_height=20
+let g:ctrlp_max_files=0
 
 " Currently deprecated (EasyGrep removed due to speed)
 let g:EasyGrepRecursive = 1
@@ -136,11 +143,19 @@ let g:EasyGrepRecursive = 1
 let g:EasyGrepMode = 2
 
 let g:tagbar_phpctags_bin='~/.vim/phpctags'
+let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 let g:tagbar_left = 1
 let g:tagbar_phpctags_memory_limit = '512M'
 
 let g:golang_goroot = "/usr/local/bin"
 let g:golang_cwindow = 0
+
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_phpcs_args = "--standard=~/Thumbtack/website/config/phpcs/ruleset.xml"
+let g:syntastic_php_phpmd_post_args = "~/Thumbtack/website/config/phpmd/ruleset.xml"
+let g:syntastic_aggregate_errors = 1
 
 " Map Silver Surfer to Ack
 let g:ackprg = "ag --vimgrep --ignore *.csv --ignore *.sql --ignore *.out --ignore *.json --ignore *.svg --ignore *.mgr_* --ignore *.all* --ignore *.pem"
@@ -166,6 +181,9 @@ map <F3> :source ~/vim_session <cr>
 nnoremap <silent> <F4> :TagbarToggle<CR>
 " F5: Switch on/off NERDTree
 nnoremap <silent> <F5> :NERDTreeTabsToggle<CR>
+map <leader>r :NERDTreeFind<cr>
+" Map Tagbar for Go to F8
+nmap <F8> :TagbarToggle<CR>
 
 " Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
@@ -201,6 +219,7 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+let g:go_fmt_autosave=1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -216,9 +235,25 @@ nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 set number
-let g:go_fmt_autosave=1
-let g:go_fmt_command = "goimports"
 
 let g:syntastic_javascript_checkers = ['eslint']
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%{fugitive#statusline()}
 
+"Allow backspace in insert mode
+"set backspace=indent,eol,start
+""Show title
+set title
+
+"Strip trailing whitespace (,ss)
+function! StripWhitespace()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
