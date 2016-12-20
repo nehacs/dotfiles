@@ -10,6 +10,46 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" Bundles (make sure vundle manages vundle)
+Bundle 'gmarik/vundle'
+" Color scheme
+Bundle 'altercation/vim-colors-solarized'
+" Less (CSS) highlighting
+Bundle 'lunaru/vim-less'
+" JS linting/hinting
+Bundle 'walm/jshint.vim'
+" Good autocomplete (see installation instructions below)
+Bundle 'Valloric/YouCompleteMe'
+" Syntax highlighting for puppet
+Bundle 'rodjek/vim-puppet'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER setting 'compatible'.
@@ -67,6 +107,7 @@ set shiftwidth=4
 
 " for Thumbtack
 set textwidth=100
+set colorcolumn=100
 
 au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
 " au BufWritePost *.html silent! !ctags -R --exclude=*.js --exclude=*.py &
@@ -78,7 +119,6 @@ au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
 au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &>/dev/null &
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &
 " au BufWritePost *.go silent! !gotags -R . > tags &
-
 
 " for if I ever get ctags in Javascript working
 " au BufWritePost *.html,*.js silent! !ctags -R --exclude=*.py &
@@ -176,3 +216,9 @@ nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 set number
+let g:go_fmt_autosave=1
+let g:go_fmt_command = "goimports"
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+
