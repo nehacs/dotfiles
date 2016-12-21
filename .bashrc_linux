@@ -4,6 +4,7 @@
 #PS1="\[\`if [[ \$? = "0" ]]; then echo '\e[32m\h\e[0m'; else echo '\e[31m\h\e[0m' ; fi\`:\w\n\$ "
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
+eval `dircolors ~/.dircolors`
 
 # Path
 export PATH=$PATH:$HOME/bin
@@ -13,7 +14,7 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE="ls"
 
 # Editor
-export EDITOR="emacs"
+export EDITOR="vi"
 
 # Aliases
 alias ls="ls -alhG --color"
@@ -39,9 +40,10 @@ alias gcommit="git commit "
 alias gcommitamend="git commit --amend "
 alias gcommitne="git commit --amend --no-edit"
 alias gsyncm="gswitch master; gpullo"
-alias gsync="gsyncm; gswitch $0; git rebase master"
+alias gsync="git rebase master"
+alias gcurr="git rev-parse --abbrev-ref HEAD"
 alias greb="git rebase "
-alias grebcont="git rebase --continue "
+alias grebcon="git rebase --continue "
 alias gce="gcommit; gpush "
 alias gshow="git show "
 alias gfiles="git show --pretty=\"\" --name-only"

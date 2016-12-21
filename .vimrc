@@ -42,6 +42,9 @@ Bundle 'walm/jshint.vim'
 Bundle 'Valloric/YouCompleteMe'
 " Syntax highlighting for puppet
 Bundle 'rodjek/vim-puppet'
+" Fancy statusline
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -115,14 +118,15 @@ set shiftwidth=4
 set textwidth=100
 set colorcolumn=100
 
-au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
+" au BufWritePost *.html,*.php,*.go silent! !ctags -R --exclude=*.js --exclude=*.py &
+" au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
 " au BufWritePost *.html silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.html silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.php silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 " au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py & | silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 " au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py | ~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 
-au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &>/dev/null &
+" au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &>/dev/null &
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &
 " au BufWritePost *.go silent! !gotags -R . > tags &
 
@@ -137,20 +141,9 @@ let g:ctrlp_working_path_mode = ''
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=0
 
-" Currently deprecated (EasyGrep removed due to speed)
-let g:EasyGrepRecursive = 1
-" let g:EasyGrepMode = 0
-let g:EasyGrepMode = 2
-
-let g:tagbar_phpctags_bin='~/.vim/phpctags'
-let g:go_fmt_command = "goimports"
-let g:go_fmt_command = "goimports"
-let g:go_fmt_command = "goimports"
+" let g:tagbar_phpctags_bin='~/.vim/phpctags'
 let g:tagbar_left = 1
 let g:tagbar_phpctags_memory_limit = '512M'
-
-let g:golang_goroot = "/usr/local/bin"
-let g:golang_cwindow = 0
 
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=~/Thumbtack/website/config/phpcs/ruleset.xml"
@@ -182,8 +175,6 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 " F5: Switch on/off NERDTree
 nnoremap <silent> <F5> :NERDTreeTabsToggle<CR>
 map <leader>r :NERDTreeFind<cr>
-" Map Tagbar for Go to F8
-nmap <F8> :TagbarToggle<CR>
 
 " Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
@@ -219,6 +210,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+let g:golang_goroot = "/usr/local/bin"
+let g:golang_cwindow = 0
 let g:go_fmt_autosave=1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
@@ -242,6 +235,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%{fugitive#statusline()}
+set statusline+=%f
 
 "Allow backspace in insert mode
 "set backspace=indent,eol,start
