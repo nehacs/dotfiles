@@ -22,37 +22,72 @@ set background=dark
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+" Keep Plugin commands between vundle#begin/end.
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Ack
-Plugin 'mileszs/ack'
+Plugin 'mileszs/ack.vim'
 " Auto-pairs
 Bundle 'jiangmiao/auto-pairs'
 " Bufexplorer
 Plugin 'jlanzarotta/bufexplorer'
 " Ctrlp
-Plugin 'kien/ctrlp'
+Plugin 'kien/ctrlp.vim'
+" JS syntax
+Plugin 'othree/javascript-libraries-syntax.vim'
+" JS linting/hinting
+Plugin 'walm/jshint.vim'
+" Nerdtree
+Plugin 'scrooloose/nerdtree'
+" Supertab
+Plugin 'ervandew/supertab'
+" Syntastic
+Plugin 'vim-syntastic/syntastic'
+" Tagbar
+Plugin 'majutsushi/tagbar'
+" Tagbar-phpctags
+Plugin 'vim-php/tagbar-phpctags.vim'
+" Tcomment
+Plugin 'tomtom/tcomment_vim'
 " Fancy statusline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" Bundles (make sure vundle manages vundle)
-Plugin 'gmarik/vundle'
+" Vim angular
+Plugin 'burnettk/vim-angular'
+" Bad whitespace
+Plugin 'bitc/vim-bad-whitespace'
 " Color scheme
 Plugin 'altercation/vim-colors-solarized'
+" Go compiler
+Plugin 'rjohnsondev/vim-compiler-go'
+" Fugitive
+Plugin 'tpope/vim-fugitive'
+" Go
+Plugin 'fatih/vim-go'
+" Godef
+Plugin 'dgryski/vim-godef'
+" Javascript
+Plugin 'pangloss/vim-javascript'
+" JSON
+Plugin 'elzr/vim-json'
 " Less (CSS) highlighting
 Plugin 'lunaru/vim-less'
-" JS linting/hinting
-Plugin 'walm/jshint'
-" Good autocomplete (see installation instructions below)
-Plugin 'Valloric/YouCompleteMe'
+" Nerdtree tabs
+Plugin 'jistr/vim-nerdtree-tabs'
+" Paste
+Plugin 'sickill/vim-pasta'
 " Syntax highlighting for puppet
 Plugin 'rodjek/vim-puppet'
+" Sensible defaults
+Plugin 'tpope/vim-sensible'
+" Twig
+Plugin 'lumiliet/vim-twig'
+" Bundles (make sure vundle manages vundle)
+Plugin 'gmarik/vundle'
+" Good autocomplete (see installation instructions below)
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
