@@ -14,6 +14,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/assets/*,*/.git/*
+set autoread
 
 syntax enable
 colorscheme solarized
