@@ -28,24 +28,31 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+" Ack
+Plugin 'mileszs/ack'
+" Auto-pairs
+Bundle 'jiangmiao/auto-pairs'
+" Bufexplorer
+Plugin 'jlanzarotta/bufexplorer'
+" Ctrlp
+Plugin 'kien/ctrlp'
+" Fancy statusline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " Bundles (make sure vundle manages vundle)
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 " Color scheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " Less (CSS) highlighting
-Bundle 'lunaru/vim-less'
+Plugin 'lunaru/vim-less'
 " JS linting/hinting
-Bundle 'walm/jshint.vim'
+Plugin 'walm/jshint'
 " Good autocomplete (see installation instructions below)
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Syntax highlighting for puppet
-Bundle 'rodjek/vim-puppet'
-" Fancy statusline
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
+Plugin 'rodjek/vim-puppet'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
