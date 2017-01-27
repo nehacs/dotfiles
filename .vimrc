@@ -13,7 +13,7 @@ runtime! debian.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/assets/*,*/.git/*
+set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/_assets/*,*/.git/*
 set autoread
 
 syntax enable
@@ -148,7 +148,10 @@ execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
-set noswapfile
+" Set backup dirs to tmp ones to prevent clutter
+set backupdir=~/vimtmp,.
+set directory=~/vimtmp,.
+set undodir=~/vimtmp,.
 
 set path=$PWD/**
 
@@ -159,7 +162,13 @@ set shiftwidth=4
 
 " for Thumbtack
 set textwidth=100
-set colorcolumn=100
+set colorcolumn=+1
+highlight ColorColumn cterm=reverse ctermbg=8 guibg=Magenta
+augroup colorcolumn
+    autocmd!
+    autocmd ColorScheme solarized highlight ColorColumn cterm=reverse ctermbg=8 guibg=Magenta
+augroup end
+
 
 " au BufWritePost *.html,*.php,*.go silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
