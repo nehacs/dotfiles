@@ -15,10 +15,20 @@ filetype off                  " required
 
 set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/_assets/*,*/.git/*
 set autoread
+set shortmess+=A
+
+" Trigger autoread when changing buffers or coming back to vim.
+au FocusGained,BufEnter * :silent! !
 
 syntax enable
-colorscheme solarized
-set background=dark
+" colorscheme solarized
+" set background=dark
+
+" Folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -163,12 +173,13 @@ set shiftwidth=4
 " for Thumbtack
 set textwidth=100
 set colorcolumn=+1
-highlight ColorColumn cterm=reverse ctermbg=8 guibg=Magenta
-augroup colorcolumn
-    autocmd!
-    autocmd ColorScheme solarized highlight ColorColumn cterm=reverse ctermbg=8 guibg=Magenta
-augroup end
-
+highlight ColorColumn ctermbg=8 guibg=Magenta
+set cursorline
+highlight CursorLine ctermbg=8 cterm=none
+highlight CursorLineNr term=bold ctermfg=5 gui=bold guifg=Yellow
+highlight Pmenu ctermfg=0 ctermbg=7 guibg=Grey90
+highlight PmenuSel ctermfg=7 ctermbg=0 guibg=Grey
+highlight Visual ctermbg=8 cterm=none
 
 " au BufWritePost *.html,*.php,*.go silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
@@ -176,7 +187,7 @@ augroup end
 " au BufWritePost *.html silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.php silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 " au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py & | silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
-" au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py | ~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
+au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py | ~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &>/dev/null &
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &
@@ -201,6 +212,7 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=~/Thumbtack/website/config/phpcs/ruleset.xml"
 let g:syntastic_php_phpmd_post_args = "~/Thumbtack/website/config/phpmd/ruleset.xml"
 let g:syntastic_aggregate_errors = 1
+let g:airline_theme='molokai'
 
 " Map Silver Surfer to Ack
 let g:ackprg = "ag --vimgrep --ignore *.csv --ignore *.sql --ignore *.out --ignore *.json --ignore *.svg --ignore *.mgr_* --ignore *.all* --ignore *.pem"
@@ -282,6 +294,7 @@ nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 set number
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = '/home/neha/Thumbtack/website/thumbprint/node_modules/eslint/bin/eslint.js'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
