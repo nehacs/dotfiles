@@ -21,8 +21,8 @@ set shortmess+=A
 au FocusGained,BufEnter * :silent! !
 
 syntax enable
-" colorscheme solarized
-" set background=dark
+colorscheme solarized
+set background=dark
 
 " Folding
 set foldmethod=indent
@@ -96,8 +96,6 @@ Plugin 'tpope/vim-sensible'
 Plugin 'lumiliet/vim-twig'
 " Bundles (make sure vundle manages vundle)
 Plugin 'gmarik/vundle'
-" Good autocomplete (see installation instructions below)
-Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -154,8 +152,8 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-execute pathogen#infect()
-call pathogen#helptags()
+" execute pathogen#infect()
+" call pathogen#helptags()
 filetype plugin indent on
 
 " Set backup dirs to tmp ones to prevent clutter
@@ -208,6 +206,7 @@ let g:ctrlp_max_files=0
 let g:tagbar_left = 1
 let g:tagbar_phpctags_memory_limit = '512M'
 
+let g:syntastic_quiet_messages = { "!level":  "errors" }
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=~/Thumbtack/website/config/phpcs/ruleset.xml"
 let g:syntastic_php_phpmd_post_args = "~/Thumbtack/website/config/phpmd/ruleset.xml"
@@ -218,6 +217,9 @@ let g:airline_theme='molokai'
 let g:ackprg = "ag --vimgrep --ignore *.csv --ignore *.sql --ignore *.out --ignore *.json --ignore *.svg --ignore *.mgr_* --ignore *.all* --ignore *.pem"
 cnoreabbrev Ack Ack!
 noremap <Leader>a :Ack! <cword><cr>
+
+" jj to exit Insert mode
+imap jj <Esc>
 
 " For twig syntax highlighting
 au BufNewFile,BufRead *.twig.html set filetype=twig.html
