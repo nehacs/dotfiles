@@ -43,8 +43,6 @@ Plugin 'mileszs/ack.vim'
 Bundle 'jiangmiao/auto-pairs'
 " Bufexplorer
 Plugin 'jlanzarotta/bufexplorer'
-" Ctrlp
-Plugin 'kien/ctrlp.vim'
 " JS syntax
 Plugin 'othree/javascript-libraries-syntax.vim'
 " JS linting/hinting
@@ -96,6 +94,8 @@ Plugin 'tpope/vim-sensible'
 Plugin 'lumiliet/vim-twig'
 " Bundles (make sure vundle manages vundle)
 Plugin 'gmarik/vundle'
+" Command-t
+Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
