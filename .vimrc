@@ -242,6 +242,8 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 nnoremap <silent> <F5> :NERDTreeTabsToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 
+let g:NERDTreeWinSize = 40
+
 " Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
