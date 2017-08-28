@@ -13,7 +13,7 @@ runtime! debian.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set wildignore+=*/tmp/*,*/public/*,*/private/*,*/autoload/*,*/_assets/*,*/.git/*
+set wildignore+=*/tmp/*,*/private/*,*/autoload/*,*/_assets/*,*/.git/*
 set autoread
 set shortmess+=A
 
@@ -96,12 +96,16 @@ Plugin 'lumiliet/vim-twig'
 Plugin 'gmarik/vundle'
 " Command-t
 Plugin 'wincent/command-t'
+" Vim-misc
+Plugin 'xolox/vim-misc'
+" Vim-notes
+Plugin 'xolox/vim-notes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -177,7 +181,7 @@ highlight CursorLine ctermbg=8 cterm=none
 highlight CursorLineNr term=bold ctermfg=5 gui=bold guifg=Yellow
 highlight Pmenu ctermfg=0 ctermbg=7 guibg=Grey90
 highlight PmenuSel ctermfg=7 ctermbg=0 guibg=Grey
-highlight Visual ctermbg=8 cterm=none
+highlight Visual term=reverse cterm=reverse ctermfg=10 ctermbg=8 guibg=DarkGrey
 
 " au BufWritePost *.html,*.php,*.go silent! !ctags -R --exclude=*.js --exclude=*.py &
 " au BufWritePost *.php,*.html silent! !bash ~/.vim/tagFiles.sh &>/dev/null &
@@ -201,6 +205,15 @@ map <silent> <C-N> :se invhlsearch<CR> " turn on highlights with Ctrl+N
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=0
+
+" vim-notes
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.txt'
+highlight link notesAtxHeading Question
+highlight notesShortHeading term=bold ctermfg=3 gui=bold guifg=#60ff60
+highlight notesTodo term=bold ctermfg=9 guifg=#ff80ff
+highlight notesDoneMarker term=bold ctermfg=2 gui=bold guifg=#ffff60
+highlight notesInProgress term=bold ctermfg=3 gui=bold guifg=#60ff60
 
 " let g:tagbar_phpctags_bin='~/.vim/phpctags'
 let g:tagbar_left = 1
