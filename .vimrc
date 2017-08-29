@@ -100,6 +100,8 @@ Plugin 'wincent/command-t'
 Plugin 'xolox/vim-misc'
 " Vim-notes
 Plugin 'xolox/vim-notes'
+" PEP8
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
