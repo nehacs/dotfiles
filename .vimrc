@@ -190,6 +190,7 @@ highlight Visual term=reverse cterm=reverse ctermfg=10 ctermbg=8 guibg=DarkGrey
 " au BufWritePost *.php silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 " au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py & | silent! !~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
 au BufWritePost *.html,*.php silent! !ctags -R --exclude=*.js --exclude=*.py | ~/.vim/phpctags -R --exclude=*.js --exclude=*.py &>/dev/null &
+au FileType python setl tabstop=2 sw=2 sts=2 et
 
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &>/dev/null &
 " au BufWritePost *.go silent! !bash ~/.vim/tagGoFiles.sh &
