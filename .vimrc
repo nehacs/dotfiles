@@ -210,7 +210,7 @@ let g:ctrlp_max_height=20
 let g:ctrlp_max_files=0
 
 " vim-notes
-let g:notes_directories = ['~/Documents/Notes']
+let g:notes_directories = ['~/Google Drive/Notes']
 let g:notes_suffix = '.txt'
 highlight link notesAtxHeading Question
 highlight notesShortHeading term=bold ctermfg=3 gui=bold guifg=#60ff60
@@ -236,6 +236,9 @@ noremap <Leader>a :Ack! <cword><cr>
 
 " jj to exit Insert mode
 imap jj <Esc>
+
+" Map ctrl c to copy to clipboard
+xmap <C-c> "*y
 
 " For twig syntax highlighting
 au BufNewFile,BufRead *.twig.html set filetype=twig.html
