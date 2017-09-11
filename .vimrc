@@ -29,6 +29,13 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+au FileType markdown syn region myMkdHeaderFold
+    \ start="\v^\s*\z(\#{1,6})"
+    \ skip="\v(\n\s*\z1\#)\@="
+    \ end="\v\n(\s*\#)\@="ms=s-1,me=s-1
+    \ fold contains=myMkdHeaderFold
+au FileType markdown syn sync fromstart
+au FileType markdown set foldmethod=syntax
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -177,9 +184,9 @@ set shiftwidth=4
 " for Thumbtack
 set textwidth=100
 set colorcolumn=+1
-highlight ColorColumn ctermbg=8 guibg=Magenta
+highlight ColorColumn ctermbg=0 guibg=Red
 set cursorline
-highlight CursorLine ctermbg=8 cterm=none
+highlight CursorLine ctermbg=0 guibg=Grey40
 highlight CursorLineNr term=bold ctermfg=5 gui=bold guifg=Yellow
 highlight Pmenu ctermfg=0 ctermbg=7 guibg=Grey90
 highlight PmenuSel ctermfg=7 ctermbg=0 guibg=Grey
