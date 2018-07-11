@@ -183,6 +183,7 @@ set shiftwidth=4
 
 " for Thumbtack
 set textwidth=100
+autocmd bufreadpre *.txt setlocal textwidth=0
 set colorcolumn=+1
 highlight ColorColumn ctermbg=0 guibg=Red
 set cursorline
@@ -215,9 +216,13 @@ map <silent> <C-N> :se invhlsearch<CR> " turn on highlights with Ctrl+N
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=0
+let g:NERDTreeWinSize = 40
+
+" Command-T
+let g:CommandTMaxFiles=160000
 
 " vim-notes
-let g:notes_directories = ['~/Google Drive/Notes']
+let g:notes_directories = ['/Volumes/GoogleDrive/My Drive/Notes']
 let g:notes_suffix = '.txt'
 highlight link notesAtxHeading Question
 highlight notesShortHeading term=bold ctermfg=3 gui=bold guifg=#60ff60

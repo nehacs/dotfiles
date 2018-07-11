@@ -13,7 +13,7 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE="ls"
 
 # Editor
-export EDITOR="vi"
+export EDITOR="/usr/bin/vim"
 
 # Aliases
 alias ls="ls -alhG"
