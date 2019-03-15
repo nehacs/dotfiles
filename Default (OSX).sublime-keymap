@@ -1,0 +1,5 @@
+[
+	{ "keys": ["f3"], "command": "goto_definition" },
+	{ "keys": ["shift+f3"], "command": "goto_reference" },
+	{ "keys": ["super+shift+o"], "command": "reveal_in_side_bar" },
+]

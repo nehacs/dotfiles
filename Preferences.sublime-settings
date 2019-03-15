@@ -1,0 +1,12 @@
+{
+	"draw_white_space": "all",
+	"font_size": 9,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		100
+	]
+}
