@@ -21,6 +21,7 @@ set shortmess+=A
 au FocusGained,BufEnter * :silent! !
 
 syntax enable
+let g:solarized_termcolors = 256
 colorscheme solarized
 set background=dark
 
@@ -222,7 +223,6 @@ let g:NERDTreeWinSize = 40
 let g:CommandTMaxFiles=160000
 
 " vim-notes
-let g:notes_directories = ['/Volumes/GoogleDrive/My Drive/Notes']
 let g:notes_suffix = '.txt'
 highlight link notesAtxHeading Question
 highlight notesShortHeading term=bold ctermfg=3 gui=bold guifg=#60ff60
